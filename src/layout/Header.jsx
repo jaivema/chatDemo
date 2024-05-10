@@ -1,11 +1,21 @@
 export default function Header() {
-    return (
-      <>
-        <header>
-          <div>
-            <h1 >myChat</h1>
-          </div>
-        </header>
-      </>
-    );
-  }
+  return (
+    <>
+      <header
+        style={{
+          backgroundColor: "grey",
+          color: "white",
+          padding: "20px 0",
+          textAlign: "center",
+          position: "fixed",
+          width: "100%",
+          borderTop: "1px solid #ddd",
+        }}
+      >
+        <div>
+          <h1>Healthy & Wealthy 4U</h1>
+        </div>
+      </header>
+    </>
+  );
+}

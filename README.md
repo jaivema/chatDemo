@@ -25,11 +25,17 @@ In React, you can leverage the power of WebSockets by using libraries like Socke
 ## CSS
 
 * No animation dependencies
+
 * Simple declarative component APIs vs brittle HTML markup
+
 * Complete keyboard support
+
 * Complete SUI component definition support
+
 * Completely documented
+
 * Completely tested
+
 * Accessible
   
   ### Semantic framework
@@ -52,28 +58,18 @@ In React, you can leverage the power of WebSockets by using libraries like Socke
 
 # Components tree
 
-```dotnetcli
-├── src
-│   ├── APIcommunication
-│   │   ├── SocketProvider.js
-│   ├── layout
-│   │   ├── Footer.jsx
-│   │   ├── Header.jsx
-│   │   ├── Layout.jsx
-│   ├── chat
-│   │   ├── MyChat.jsx
-│   │   ├── Login.jsx
-│   │   ├── Conversation.jsx
-│   │   ├── ConversationDetail.jsx
-│   ├── home
-│   │   ├── Home.jsx
-│   ├── App.css
-│   ├── App.jsx
-│   ├── index.js
-│   ├── main.jsx
-├── public
-├── node_modules
-├── package.json
-├── package-lock.json
-└── .gitignore
+```mermaid
+flowchart TD
+    A1(Provider.js) --> A
+    A2(Reducer.js)  --> A
+    A[ChatRoom] --> B1[ChatConversation] 
+                    B1              --> E1[ChatInfo]
+                    B1              --> E2[ConversationFeed]    --> F1[DetailConversationFeed]
+                    B1              --> E3[WriteMessage]
+    A           --> B2[ChatMenu]    --> C1[ChatMenuHeader]
+                    B2              --> C2[ChatMenuBody]
+                                        C2                      --> D1[AddContact]
+                                        C2                      --> D2[CreateChat]
+                                        C2                      --> D3[ContactList]
+    
 ```

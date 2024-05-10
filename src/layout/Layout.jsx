@@ -6,20 +6,52 @@ export default function Layout () {
 
   return (
     <>
-      <nav>
-        <div>
-          <Header />
-        </div>
-        <div >
-          <Link to="/home">Home</Link>
-          <br/>
-          <Link to="/chat">Chat</Link>
-          <br />
-          <br />
-        </div>
-      </nav>
+      <div
+        style={{
+          backgroundColor: 'whitesmoke',
+          padding: "10px",
 
-      <div style={{ width: "80%" }}>
+        }}
+      >
+        <nav>
+
+            <div>
+              <Link
+                to="/home"
+                style={{
+                  marginRight: "20px",
+                  color: "#333",
+                  textDecoration: "none",
+                }}
+              >
+                Home
+              </Link>
+              <Link
+                to="/chat"
+                style={{
+                   color: "#333",
+                  textDecoration: "none",
+                }}
+              >
+                Chat
+              </Link>
+            </div>
+
+        </nav>
+      </div>
+      <Header />
+      <div
+        style={{
+          minHeight: "calc(100vh - 160px)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginLeft: "20px",
+          color: 'grey',
+          width: '100%'
+
+        }}
+      >
         <Outlet />
       </div>
 

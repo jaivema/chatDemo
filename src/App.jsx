@@ -1,14 +1,23 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./layout/Layout";
+import Home from "./pages/Home";
+import Chat from "./pages/Chat";
 
 import './App.css'
 
 function App() {
 
   return (
-    <>
-      <h1>LAB05-1 Chat 2024</h1>
-      
-      
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="home" element={<Home />} />
+          <Route path="chat" element={<Chat />} />
+          <Route path="*" element={<Home />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
