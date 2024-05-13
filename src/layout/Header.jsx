@@ -5,9 +5,9 @@ export default function Header() {
         style={{
           backgroundColor: "grey",
           color: "white",
-          padding: "20px 0",
+          padding: "0 auto",
           textAlign: "center",
-          position: "fixed",
+          marginBottom: "20px",
           width: "100%",
           borderTop: "1px solid #ddd",
         }}
