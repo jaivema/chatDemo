@@ -1,5 +1,8 @@
 # Home
 
+### .env.local definition:
+VITE_ENDPOINT=wss://*userkey*.execute-api.eu-central-1.amazonaws.com/test
+
 ### This project is a React application created using Vite, with dependencies including:
 
 * Websockets to connect with AWS Server

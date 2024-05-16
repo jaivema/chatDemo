@@ -5,6 +5,7 @@ import {
   Image,
   Segment,
   Header,
+  Label,
   List,
   Container,
   FeedUser,
@@ -25,7 +26,6 @@ import {
 export default function Chat() {
     return (
       <>
-        <h1>Chat</h1>
         <Container style={{
             border: "1px solid #ccc",
             borderRadius: "8px",
@@ -37,8 +37,7 @@ export default function Chat() {
           <GridRow>
             <GridColumn width={4}>
               <Header as="h3">Chats</Header>
-              <Container
-                style={{
+              <Container style={{
                   border: "none",
                   paddingLeft: "10px",
                   paddingBottom: "5px",
@@ -49,7 +48,6 @@ export default function Chat() {
               <Container
                 style={{
                   border: "none",
-
                   paddingLeft: "10px",
                 }}
               >
@@ -61,16 +59,15 @@ export default function Chat() {
                   labelPosition="right"
                 />{" "}
               </Container>
-              <Container
-                style={{
+              <Container style={{
                   border: "none",
                   paddingTop: "30px",
                   paddingLeft: "15px",
                   paddingBottom: "5px",
                 }}
               >
+                
                 <List divided relaxed>
-                  {/* Dummy list of chats */}
                   <List.Item>
                     <Grid>
                       <Grid.Column width={5}>
@@ -85,99 +82,7 @@ export default function Chat() {
                       </Grid.Column>
                     </Grid>
                   </List.Item>
-                  <List.Item>
-                    <Grid>
-                      <Grid.Column width={5}>
-                        <Image
-                          src="https://react.semantic-ui.com/images/avatar/small/jenny.jpg"
-                          circular
-                        />
-                      </Grid.Column>
-                      <Grid.Column width={8}>
-                        <List.Header>Jenny</List.Header>
-                        <List.Description>Last seen...</List.Description>
-                      </Grid.Column>
-                    </Grid>
-                  </List.Item>
-                  <List.Item>
-                    <Grid>
-                      <Grid.Column width={5}>
-                        <Icon size="large" name="code" circular />
-                      </Grid.Column>
-                      <Grid.Column width={8}>
-                        <List.Header>Code Group</List.Header>
-                        <List.Description>Last seen...</List.Description>
-                      </Grid.Column>
-                    </Grid>
-                  </List.Item>
-                  <List.Item>
-                    <Grid>
-                      <Grid.Column width={5}>
-                        <Image
-                          src="https://react.semantic-ui.com/images/avatar/small/matthew.png"
-                          circular
-                        />
-                      </Grid.Column>
-                      <Grid.Column width={8}>
-                        <List.Header>Matthew</List.Header>
-                        <List.Description>Last seen...</List.Description>
-                      </Grid.Column>
-                    </Grid>
-                  </List.Item>
-                  <List.Item>
-                    <Grid>
-                      <Grid.Column width={5}>
-                        <Image
-                          src="https://react.semantic-ui.com/images/avatar/small/daniel.jpg"
-                          circular
-                        />
-                      </Grid.Column>
-                      <Grid.Column width={8}>
-                        <List.Header>Daniel</List.Header>
-                        <List.Description>Last seen...</List.Description>
-                      </Grid.Column>
-                    </Grid>
-                  </List.Item>
-                  <List.Item>
-                    <Grid>
-                      <Grid.Column width={5}>
-                        <Image
-                          src="https://react.semantic-ui.com/images/avatar/small/molly.png"
-                          circular
-                        />
-                      </Grid.Column>
-                      <Grid.Column width={8}>
-                        <List.Header>Molly</List.Header>
-                        <List.Description>Last seen...</List.Description>
-                      </Grid.Column>
-                    </Grid>
-                  </List.Item>
-                  <List.Item>
-                    <Grid>
-                      <Grid.Column width={5}>
-                        <Image
-                          src="https://react.semantic-ui.com/images/avatar/large/patrick.png"
-                          circular
-                        />
-                      </Grid.Column>
-                      <Grid.Column width={8}>
-                        <List.Header>Patrick</List.Header>
-                        <List.Description>Last seen...</List.Description>
-                      </Grid.Column>
-                    </Grid>
-                  </List.Item>
-                  <List.Item>
-                    <Grid>
-                      <Grid.Column width={5}>
-                        <Icon size="large" name="sun" inverted circular />
-                      </Grid.Column>
-                      <Grid.Column width={8}>
-                        <List.Header>Party Group</List.Header>
-                        <List.Description>Last seen...</List.Description>
-                      </Grid.Column>
-                    </Grid>
-                  </List.Item>
-                  {/* Add more chat items here */}
+                  
                 </List>
               </Container>
             </GridColumn>
@@ -185,11 +90,14 @@ export default function Chat() {
               <Segment clearing>
                 <Header as="h3" floated="left">
                   {" "}
-                  <Icon size="large" name="code" circular />
-                  Code Group
                 </Header>
-                <Header as="h3" floated="right">
-                  <Icon circular inverted name="users" />
+                <Header as="h5" floated="right">
+                  <Label circular color={"green"} key={"green"}>
+                    Connected
+                  </Label>
+                  <Label circular color={"grey"} key={"grey"}>
+                    Log out
+                  </Label>
                 </Header>
               </Segment>
 
@@ -207,45 +115,6 @@ export default function Chat() {
                       <FeedMeta>
                         <FeedLike>
                           <Icon name="like" />4 Likes
-                        </FeedLike>
-                      </FeedMeta>
-                    </FeedContent>
-                  </FeedEvent>
-
-                  <FeedEvent>
-                    <FeedLabel image="https://react.semantic-ui.com/images/avatar/small/helen.jpg" />
-                    <FeedContent>
-                      <FeedSummary>
-                        <a>Helen Troy</a> added <a>2 new illustrations</a>
-                        <FeedDate>4 days ago</FeedDate>
-                      </FeedSummary>
-                      <FeedExtra images>
-                        <a>
-                          <img src="https://react.semantic-ui.com/images/wireframe/image.png" />
-                        </a>
-                        <a>
-                          <img src="https://react.semantic-ui.com/images/wireframe/image.png" />
-                        </a>
-                      </FeedExtra>
-                      <FeedMeta>
-                        <FeedLike>
-                          <Icon name="like" />1 Like
-                        </FeedLike>
-                      </FeedMeta>
-                    </FeedContent>
-                  </FeedEvent>
-
-                  <FeedEvent>
-                    <FeedLabel image="https://react.semantic-ui.com/images/avatar/small/jenny.jpg" />
-                    <FeedContent>
-                      <FeedSummary
-                        date="2 Days Ago"
-                        user="Jenny Hess"
-                        content="add you as a friend"
-                      />
-                      <FeedMeta>
-                        <FeedLike>
-                          <Icon name="like" />8 Likes
                         </FeedLike>
                       </FeedMeta>
                     </FeedContent>
@@ -272,30 +141,6 @@ export default function Chat() {
                       </FeedMeta>
                     </FeedContent>
                   </FeedEvent>
-
-                  <FeedEvent>
-                    <FeedLabel image="https://react.semantic-ui.com/images/avatar/small/justen.jpg" />
-                    <FeedContent>
-                      <FeedSummary>
-                        <a>Justen Kitsune</a> added <a>2 new photos</a> of you
-                        <FeedDate>4 days ago</FeedDate>
-                      </FeedSummary>
-                      <FeedExtra images>
-                        <a>
-                          <img src="https://react.semantic-ui.com/images/wireframe/image.png" />
-                        </a>
-                        <a>
-                          <img src="https://react.semantic-ui.com/images/wireframe/image.png" />
-                        </a>
-                      </FeedExtra>
-                      <FeedMeta>
-                        <FeedLike>
-                          <Icon name="like" />
-                          41 Likes
-                        </FeedLike>
-                      </FeedMeta>
-                    </FeedContent>
-                  </FeedEvent>
                 </Feed>
               </Segment>
 
@@ -307,7 +152,6 @@ export default function Chat() {
             </GridColumn>
           </GridRow>
         </Grid>
-        
       </Container>
       </>
     );

@@ -4,7 +4,6 @@ import { Card, Image } from "semantic-ui-react";
 export default function Home() {
   return (
     <>
-      <h1>hi Home</h1>
       <Card color="black" style={{ maxWidth: "400px", margin: "auto" }}>
         <Image
           src="https://react.semantic-ui.com/images/avatar/large/elliot.jpg"
