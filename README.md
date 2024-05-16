@@ -1,9 +1,11 @@
 # Home
 
 ### .env.local definition:
-VITE_ENDPOINT=wss://*userkey*.execute-api.eu-central-1.amazonaws.com/test
+VITE_ENDPOINT=**wss://<u>userkey</u>.execute-api.eu-central-1.amazonaws.com/test**
 
 ### This project is a React application created using Vite, with dependencies including:
+
+<a href="https://github.com/vitejs/vite-plugin-react-swc">@vitejs/plugin-react-swc</a> uses <a href="https://swc.rs/" rel="nofollow">SWC</a> for Fast Refresh
 
 * Websockets to connect with AWS Server
 * Hooks: useReducer, useState, useContext
