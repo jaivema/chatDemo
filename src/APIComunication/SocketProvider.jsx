@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, createContext } from "react"
 
 const endpoint = import.meta.env.VITE_ENDPOINT;
 
-export const WebsocketContext = createContext(false, null,()=>{})
+export const WebSocketContext = createContext(false, null,()=>{})
 
 const SocketProvider = ({children})=>{
   const [isConnected, setIsConnected] = useState(false)
@@ -29,9 +29,9 @@ const SocketProvider = ({children})=>{
     websocket.current?.send.bind(websocket.current)
   ];
   return (
-    <WebsocketContext.Provider value={actionsWebSocket}>
+    <WebSocketContext.Provider value={actionsWebSocket}>
       {children}
-    </WebsocketContext.Provider>
+    </WebSocketContext.Provider>
   );
 }
 export default SocketProvider

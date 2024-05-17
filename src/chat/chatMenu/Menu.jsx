@@ -1,5 +1,5 @@
 import {Container, Divider} from "semantic-ui-react"
-import ChatMenuHeader from "./ChatMenuHeader"
+import ChatMenuHeader from "./MenuHeader"
 import ContactsList from "./ContactsList"
 
 export default function ChatMenu() {
