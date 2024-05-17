@@ -2,12 +2,12 @@ import { useState, useRef, useEffect, createContext } from "react"
 
 const endpoint = import.meta.env.VITE_ENDPOINT;
 
-const WebsocketContext = createContext(false, null,()=>{})
+export const WebsocketContext = createContext(false, null,()=>{})
 
 const SocketProvider = ({children})=>{
   const [isConnected, setIsConnected] = useState(false)
   const [message, setMessage] = useState(null)
-
+  
   const websocket = useRef(null)
   
   useEffect(() => {
