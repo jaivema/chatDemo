@@ -7,7 +7,8 @@ import {
     FeedEvent,
     FeedDate,
     FeedContent,
-    Icon
+    Icon,
+    FeedLike
   } from "semantic-ui-react"
   
   export default function DetailConversationFeed(feed) {
@@ -27,9 +28,9 @@ import {
             </FeedSummary>
             <FeedExtra text>{item.text}</FeedExtra>
             <FeedMeta>
-              
+              <FeedLike>
                 <Icon name="like" />4 Likes
-              
+              </FeedLike>
             </FeedMeta>
           </FeedContent>
         </FeedEvent>

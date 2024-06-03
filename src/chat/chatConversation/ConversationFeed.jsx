@@ -4,31 +4,31 @@ import {Feed} from "semantic-ui-react"
 import DetailConversationFeed from './DetailConversationFeed'
 import WriteMessage from "./WriteMessage"
 
-export default function ConversationFeed(user) {
-  const [isConnected, message, send] = useContext(WebSocketContext);
-  const [conversation, dispatch] = useReducer(conversationReducer, []);
+export default function ConversationFeed({user}) {
+  const [isConnected, message, send] = useContext(WebSocketContext)
+  const [conversation, dispatch] = useReducer(conversationReducer, [])
   
   function conversationReducer(conversation, action) {
     switch (action.type) {
       case "send": {
         let data = {
           action: "conversation",
-          chatId: "party",
+          chatId: user.chatId,
           userId: user.userId,
-          text: action.payload,
-        };
-        if (isConnected) send(JSON.stringify(data));
+          text: action.payload
+        }
+        if (isConnected) send(JSON.stringify(data))
 
         return [
           ...conversation,
           {
             id: Date.now(),
             time: Date.now(),
-            chatId: "party",
+            chatId: user.chatId,
             userId: user.userId,
-            text: action.payload,
-          },
-        ];
+            text: action.payload
+          }
+        ]
       }
       case "receive": {
         return [
@@ -39,27 +39,27 @@ export default function ConversationFeed(user) {
             chatId: JSON.parse(message).chatId,
             userId: JSON.parse(message).userId,
             text: JSON.parse(message).text,
-            message,
-          },
-        ];
+            message
+          }
+        ]
       }
       default: {
-        return conversation;
+        return conversation
       }
     }
   }
   useEffect(() => {
     if (message) {
       var isConversation = false;
-      let stringMessage = JSON.stringify(message);
+      let stringMessage = JSON.stringify(message)
     
       if (!stringMessage.includes("sent at")) {
-        isConversation = JSON.parse(message).action === "conversation";
+        isConversation = JSON.parse(message).action === "conversation"
     
-        if (isConversation) dispatch({ type: "receive", payload: message });
+        if (isConversation) dispatch({ type: "receive", payload: message })
       }
     }
-   }, [message]);
+   }, [message])
 
   return (
     <>
@@ -69,5 +69,5 @@ export default function ConversationFeed(user) {
     
     <WriteMessage dispatch={dispatch} />
     </>
-  );
+  )
 }

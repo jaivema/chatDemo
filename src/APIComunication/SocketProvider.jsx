@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, createContext } from "react"
 
-const endpoint = import.meta.env.VITE_ENDPOINT;
+const endpoint = 'wss://4rytv4evb2.execute-api.eu-central-1.amazonaws.com/test';
 
 export const WebSocketContext = createContext(false, null,()=>{})
 

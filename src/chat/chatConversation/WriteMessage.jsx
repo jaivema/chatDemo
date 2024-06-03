@@ -2,11 +2,11 @@ import { Input } from "semantic-ui-react"
 import { useState } from "react"
 
 const WriteMessage = ({ dispatch }) => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState("")
 
   const handleSend = () => {
     if (text.trim() !== "") {
-      dispatch({ type: "send", payload: text });
+      dispatch({ type: "send", payload: text })
       setText("");
     }
   };

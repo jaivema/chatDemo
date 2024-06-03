@@ -1,5 +1,5 @@
 import {Container, Divider} from "semantic-ui-react"
-import ChatMenuHeader from "./MenuHeader"
+import ChatMenuHeader from "./ChatMenuHeader"
 import ContactsList from "./ContactsList"
 
 export default function ChatMenu() {
@@ -20,5 +20,5 @@ export default function ChatMenu() {
       <ContactsList />
     </Container>
     </>
-  );
+  )
 }

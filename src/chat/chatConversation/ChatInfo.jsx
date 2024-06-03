@@ -1,10 +1,12 @@
 import {Header, Label} from "semantic-ui-react"
-  
-export default function ChatInfo(user) {
+
+export default function ChatInfo ({user}) {
+    console.log(user)
+    
     return (
         <>
         <Header as="h3" floated="left">
-            {user.userId}
+            {user.name}{", "}{user.chatSelected}
         </Header>
         <Header as="h5" floated="right">
             <Label circular color={"green"} key={"green"}>
@@ -15,5 +17,5 @@ export default function ChatInfo(user) {
             </Label>
         </Header>
         </>
-    );
+    )
 }
