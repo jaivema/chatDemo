@@ -5,43 +5,31 @@ import {
   List,
 } from "semantic-ui-react"
 
-export default function ContactsList() {
-
-  const id1 = 1;
-  const id2 = 2;
-
+export default function ContactsList({user, selectChat}) {
   return (
     <>
       <List divided relaxed>
-        <List.Item id={id1} onClick={(e) => console.log(e, "id: ", id1)}>
-          <Grid>
-            <Grid.Column width={5}>
-              <Image
-                src="https://react.semantic-ui.com/images/avatar/small/elliot.jpg"
-                circular
-              />
-            </Grid.Column>
-            <Grid.Column width={8}>
-              <List.Header>Elliot</List.Header>
-              <List.Description>Last seen...</List.Description>
-            </Grid.Column>
-          </Grid>
-        </List.Item>
-
-        <List.Item id={id2} onClick={(e) => console.log(e, "id: ", id2)}>
-          <Grid>
-            <Grid.Column width={5}>
-              <Image
-                src="https://react.semantic-ui.com/images/avatar/small/joe.jpg"
-                circular
-              />
-            </Grid.Column>
-            <Grid.Column width={8}>
-              <List.Header>Joe</List.Header>
-              <List.Description>Last seen...</List.Description>
-            </Grid.Column>
-          </Grid>
-        </List.Item>
+        {user.chats.map((chat) => (
+          <List.Item 
+            key={chat.chatId} 
+            onClick={() => selectChat(chat.chatId)}>
+            <Grid>
+              <Grid.Column width={4}>
+                <Image
+                  src={`https://react.semantic-ui.com/images/avatar/small/${chat.avatar}.jpg`}
+                  circular
+                />
+              </Grid.Column>
+              <Grid.Column width={8}>
+                <List.Header>{chat.name}</List.Header>
+                <List.Description>
+                  {new Date(chat.lastSeen).toDateString()} 
+                </List.Description>
+              </Grid.Column>
+            </Grid>
+          </List.Item>
+          ))
+        }
       </List>
     </>
   )

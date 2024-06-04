@@ -9,25 +9,25 @@ import ChatMenu from "./chatMenu/ChatMenu"
 import ChatConversation from "./chatConversation/ChatConversation"
 import { WebSocketContext } from "../APIComunication/SocketProvider"
 import { useContext, useState, useEffect } from "react"
+import initUser from "./initUser.json"
+
+const fakeLogins = [
+  { chatId: "elliot", userId: "elliot" },
+  { chatId: "helen", userId: "helen" },
+  { chatId: "matthew", userId: "matthew" },
+  { chatId: "daniel", userId: "daniel" },
+  { chatId: "laura", userId: "laura" },
+  { chatId: "jenny", userId: "jenny" }
+]
 
 export default function ChatRoom() {
-  const initUser = {
-    name: "",
-    avatar: "",
-    isConnected: false,
-    isLogin: false,
-    userId: "",
-    chatId: "",
-    chatSelected: "home",
-    chats: [],
-    connectionId: ""
-  }
+
   const [user, setUser] = useState(initUser)
   const [isConnected, message, send] = useContext (WebSocketContext)
   
   const sendFakeLogin = (chatId, userId) => {
     const loginOwnerUser = "owner#" & userId
-    const fakeDataLogin = {action: "login", chatId, loginOwnerUser}
+    const fakeDataLogin = {action: "login", chatId: chatId, userId: loginOwnerUser}
 
     if (isConnected) {
       send(JSON.stringify(fakeDataLogin))
@@ -41,14 +41,17 @@ export default function ChatRoom() {
     }
   }
 
-  const fakeLogins = [
-    { chatId: "elliot", userId: "elliot" },
-    { chatId: "helen", userId: "helen" },
-    { chatId: "matthew", userId: "matthew" },
-    { chatId: "daniel", userId: "daniel" },
-    { chatId: "laura", userId: "laura" },
-    { chatId: "jenny", userId: "jenny" }
-  ]
+  const selectChat = (chatSelected) => {
+    const fakeSelectedDataLogin = {
+      action: "login",
+      chatId: chatSelected,
+      userId: user.userId
+    }
+    if (isConnected) { 
+      send(JSON.stringify(fakeSelectedDataLogin))
+      setUser({ ...user, chatSelected: chatSelected , chatId: chatSelected})
+    }
+  }
   
   useEffect(() => {
     if (message) {
@@ -88,10 +91,10 @@ export default function ChatRoom() {
         <Grid columns={2} divided>
           <GridRow>
             <GridColumn width={4}>
-              <ChatMenu />
+              <ChatMenu user={user} selectChat={selectChat}/>
             </GridColumn>
             <GridColumn width={12}>
-              <ChatConversation user={user} />
+              <ChatConversation user={user}/>
             </GridColumn>
           </GridRow>
         </Grid>

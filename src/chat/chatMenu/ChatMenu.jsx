@@ -2,11 +2,11 @@ import {Container, Divider} from "semantic-ui-react"
 import ChatMenuHeader from "./ChatMenuHeader"
 import ContactsList from "./ContactsList"
 
-export default function ChatMenu() {
+export default function ChatMenu({user, selectChat}) {
   return (
     <>
     <Container >
-      <ChatMenuHeader />
+      <ChatMenuHeader minWidth={150}/>
     </Container>
     
     <Divider />
@@ -16,8 +16,9 @@ export default function ChatMenu() {
       paddingTop: "30px",
       paddingLeft: "15px",
       paddingBottom: "5px",
+      minWidth: "150px",
     }}>
-      <ContactsList />
+      <ContactsList user={user} selectChat={selectChat} />
     </Container>
     </>
   )
