@@ -9,10 +9,10 @@ export default function ChatInfo ({user}) {
             {user.name}{", "}{user.chatSelected}
         </Header>
         <Header as="h5" floated="right">
-            <Label circular color={"green"} key={"green"}>
+            <Label circular color={"teal"} key={"teal"}>
                 Connected
             </Label>
-            <Label circular color={"teal"} key={"teal"}>
+            <Label circular color={"grey"} key={"grey"}>
                 Log out
             </Label>
         </Header>

@@ -55,17 +55,17 @@ export default function ChatRoom() {
   
   useEffect(() => {
     if (message) {
-      var isLogged = false
-      isLogged = JSON.parse(message).action === "logged in"
+      const isLogged = JSON.parse(message).action === "logged in"
+      
       if (isLogged) {
-        setUser({
-          ...user,
+        setUser(prevUser => ({
+          ...prevUser,
           connectionId: JSON.parse(message).connectionId,
           chats: JSON.parse(message).dataOwner.chats,
           name: JSON.parse(message).dataOwner.fullName,
           avatar: JSON.parse(message).dataOwner.avatar,
           isLogin: true
-        })
+        }))
       }
     }
   }, [message])

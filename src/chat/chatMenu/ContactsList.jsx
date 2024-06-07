@@ -2,17 +2,17 @@
 import {
   Grid,
   Image,
-  List,
+  List
 } from "semantic-ui-react"
 
 export default function ContactsList({user, selectChat}) {
   return (
     <>
-      <List divided relaxed>
-        {user.chats.map((chat) => (
-          <List.Item 
-            key={chat.chatId} 
-            onClick={() => selectChat(chat.chatId)}>
+    <List divided relaxed animated selection size="small">
+      {
+        user.chats.map((chat) => (
+          <List.Item key={chat.chatId} onClick={() => selectChat(chat.chatId)}>
+            
             <Grid>
               <Grid.Column width={4}>
                 <Image
@@ -20,17 +20,21 @@ export default function ContactsList({user, selectChat}) {
                   circular
                 />
               </Grid.Column>
-              <Grid.Column width={8}>
+              
+              <Grid.Column width={7}>
                 <List.Header>{chat.name}</List.Header>
                 <List.Description>
-                  {new Date(chat.lastSeen).toDateString()} 
+                  {
+                    new Date(chat.lastSeen).toDateString()
+                  } 
                 </List.Description>
               </Grid.Column>
             </Grid>
+
           </List.Item>
-          ))
-        }
-      </List>
+        ))
+      }
+    </List>
     </>
   )
 }

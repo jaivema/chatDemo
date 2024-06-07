@@ -5,18 +5,17 @@ import ContactsList from "./ContactsList"
 export default function ChatMenu({user, selectChat}) {
   return (
     <>
-    <Container >
-      <ChatMenuHeader minWidth={150}/>
+    <Container>
+      <ChatMenuHeader />
     </Container>
     
     <Divider />
     
     <Container style={{
-      border: "none",
       paddingTop: "30px",
       paddingLeft: "15px",
       paddingBottom: "5px",
-      minWidth: "150px",
+      minWidth: "250px"
     }}>
       <ContactsList user={user} selectChat={selectChat} />
     </Container>

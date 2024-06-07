@@ -10,7 +10,7 @@ export default function ChatMenuHeader() {
         paddingLeft: "10px",
         paddingBottom: "5px",
       }}>
-      <ButtonGroup vertical basic fluid style={{minWidth:"100px"}}>
+      <ButtonGroup vertical basic fluid style={{minWidth:"125px"}}>
           <Button icon="add"
               content="Chat"
               labelPosition="right"
